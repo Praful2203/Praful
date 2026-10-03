@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --background: #F7F3EA;
+  --background-secondary: #FFFDF8;
+  --surface: #FFFFFF;
+  --surface-hover: #FBF9F4;
+  --border-light: rgba(23, 32, 42, 0.08);
+  --border-subtle: rgba(23, 32, 42, 0.05);
+  
+  /* Primary Action: Professional Burgundy */
+  --primary-burgundy: #800020;
+  --primary-burgundy-hover: #660019;
+  --primary-burgundy-light: #F4E8EB;
+  --neon-burgundy-glow: rgba(128, 0, 32, 0.35);
+  
+  --success: #16A34A;
+  --warning: #F59E0B;
+  --emergency: #DC2626;
+  --text-main: #17202A;
+  --text-secondary: #667085;
+  --text-muted: #98A2B3;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Burgundy Button Utility */
+.btn-burgundy {
+  background-color: #800020;
+  color: #FFFFFF;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-burgundy:hover {
+  background-color: #660019;
+}
+
+/* Subtle Neon Burgundy Pulse for Citizen Emergency Card */
+@keyframes neon-burgundy-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px 0 rgba(128, 0, 32, 0.3), 0 0 35px 2px rgba(128, 0, 32, 0.15);
+    border-color: rgba(214, 110, 137, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px 3px rgba(128, 0, 32, 0.45), 0 0 50px 8px rgba(128, 0, 32, 0.25);
+    border-color: rgba(255, 140, 168, 0.85);
+  }
+}
+
+.neon-burgundy-card {
+  animation: neon-burgundy-pulse 3.5s ease-in-out infinite;
+}
+
+/* Card Shadows */
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(16, 24, 40, 0.04), 0 1px 2px -1px rgba(16, 24, 40, 0.02);
+}
+
+.card-shadow-hover {
+  box-shadow: 0 4px 12px 0 rgba(16, 24, 40, 0.06), 0 2px 4px -2px rgba(16, 24, 40, 0.03);
+}
+
+.modal-shadow {
+  box-shadow: 0 20px 25px -5px rgba(16, 24, 40, 0.08), 0 8px 10px -6px rgba(16, 24, 40, 0.04);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F3EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D2C4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B5AE9E;
+}
+
+@keyframes calm-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+.animate-calm-pulse {
+  animation: calm-pulse 2.2s ease-in-out infinite;
+}
+
+/* Hide Next.js Development Badge / Floating Indicator */
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+nextjs-portal,
+#__next-build-watcher {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
